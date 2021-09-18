@@ -1,6 +1,6 @@
 {
   "name": "@geekyorion/dsa",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Data Structure library",
   "main": "index.js",
   "scripts": {},
