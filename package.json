@@ -1,0 +1,19 @@
+{
+  "name": "@geekyorion/dsa",
+  "version": "1.0.0",
+  "description": "A Data Structure library",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "dsa",
+    "linkedlist",
+    "tree",
+    "library"
+  ],
+  "author": "geekyorion (https://github.com/geekyorion)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekyorion/dsalib.git"
+  }
+}
