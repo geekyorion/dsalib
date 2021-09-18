@@ -212,8 +212,8 @@ output:
     /*
     {
         head: {
-            value: 1: next: {
-                value: 2: next: {
+            value: 1, next: {
+                value: 2, next: {
                     value: { value: 3, next: null },
                     next: { value: 4, next: null }
                 }
