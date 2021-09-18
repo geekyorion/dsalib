@@ -59,7 +59,7 @@ list.getCount();
 list.count;
 
 // get the JSON for the list
-list.getJSON();
+list.JSON();
 /*
 example list: [1, 2, 3]
 output:
