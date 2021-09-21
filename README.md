@@ -7,7 +7,7 @@ A data structure library which implements linkedlist, tree, etc
 ## DSA Status
 - [x] LinkedList
     - [x] Singly LinkedList
-    - [ ] Dobule LinkedList
+    - [ ] Dobuly LinkedList
 - [ ] Tree
 - [ ] Stack
 - [ ] Graph
@@ -39,7 +39,35 @@ const list = new DSA.LinkedList();
 
 ### 1. LinkedList
 
-#### properties
+#### Class Prototype
+```javascript
+// properties
+list.head: null | LinkedListNode
+list.tail: null | LinkedListNode
+list.lengthOfList: number
+
+// method list
+list.getHead(): LinkedListNode;
+list.getTail(): LinkedListNode;
+list.getLength(): number;
+list.JSON(): JSON;
+list.push(value: any): number;
+list.unshift(value: any): number;
+list.pop(): LinkedListNode.value;
+list.shift(): LinkedListNode.value;
+list.traverse(shouldReturnArray?: boolean): Array<LinkedListNode.value> | undefined;
+list.insert(position: number, value: any): number;
+list.remove(position: number): LinkedListNode.value;
+list.removeByValue(value: LinkedListNode.value, multiRemove?: boolean): number;
+list.reverse(): list;
+list.getReversedValue(): Array<LinkedListNode.value>;
+list.sort(shouldReturn?: boolean): list | true;
+list.isEqual(anotherLinkedList: LinkedList): boolean;
+list.merge(anotherLinkedList: LinkedList): number;
+list.node(value: any): LinkedListNode;
+```
+
+#### Properties
 ```javascript
 const list = new LinkedList();
 
@@ -54,11 +82,12 @@ list.getTail();
 list.tail;
 
 // get the number of nodes in the list
-list.getCount();
+list.getLength();
 // or
-list.count;
+list.lengthOfList;
 
-// get the JSON for the list
+// All these properties can be used to generate the JSON for the list
+// so to get the JSON for the list (with above properties)
 list.JSON();
 /*
 example list: [1, 2, 3]
@@ -73,11 +102,12 @@ output:
         value: 3,
         next: null
     },
-    count: 3
+    lengthOfList: 3
 }
+*/
 ```
 
-#### available methods
+#### Available methods
 - __```push(value)```__: adds a new value in the list at the last position (after the tail)
     ```javascript
     list.push(1);       // return value: 1
@@ -94,7 +124,7 @@ output:
     // list: ['a', 1];
     ```
 
-- __```pop```__: removes the last value (from the tail)
+- __```pop()```__: removes the last value (from the tail)
     ```javascript
     // list: [1, 2, 3, 4]
     const value = list.pop();
@@ -102,7 +132,7 @@ output:
     // list: [1, 2, 3];
     ```
 
-- __```shift```__: removes the starting value (from the head)
+- __```shift()```__: removes the starting value (from the head)
     ```javascript
     // list: [1, 2, 3, 4]
     const value = list.shift();
@@ -151,7 +181,7 @@ output:
         - ```false```: remove only the first match
     ```javascript
     // list: [1, 2, 2, 2, 5]
-    list.remove(2);         // returns 4; returns the new count of the list
+    list.remove(2);         // returns 4; returns the new length of the list
     // output: [1, 2, 2, 5]
     list.remove(2, true);   // returns 2
     // output: [1, 5]
@@ -194,16 +224,16 @@ output:
     // isEqual: false
     ```
 
-- __```isEqual(anotherLinkedList)```__: sort the list
+- __```merge(anotherLinkedList)```__: merge the another linkedlist
     - ```anotherLinkedList```: an another instance of the LinkedList class
     ```javascript
     // list: [1, 2, 3]
     // anotherList: [4, 5]
-    list.merge(anotherList);        // returns 5; returns the new count of the list
+    list.merge(anotherList);        // returns 5; returns the new length of the list
     // list: [1, 2, 3, 4, 5]
     ```
 
-- __```node(value)```__: returns the node with the provided value which can be used to create the new list path from value
+- __```node(value)```__: returns the node with the provided value which can be used to create the new list path from any node
     ```javascript
     // list: [1, 2, 4]
     const node = list.node(3);
@@ -220,7 +250,7 @@ output:
             }
         },
         tail: { value: 4, next: null },
-        count: 4
+        lengthOfList: 4
     }
     */
     ```

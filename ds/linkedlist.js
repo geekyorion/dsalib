@@ -9,11 +9,11 @@ class LinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
-        this.count = 0;
+        this.lengthOfList = 0;
     }
 
-    getCount() {
-        return this.count;
+    getLength() {
+        return this.lengthOfList;
     }
 
     getHead() {
@@ -54,8 +54,8 @@ class LinkedList {
             this.head = node;
         }
         this.tail = node;
-        this.count++;
-        return this.count;
+        this.lengthOfList++;
+        return this.lengthOfList;
     }
 
     unshift(value) {
@@ -66,8 +66,8 @@ class LinkedList {
             this.tail = node;
         }
         this.head = node;
-        this.count++;
-        return this.count;
+        this.lengthOfList++;
+        return this.lengthOfList;
     }
 
     pop() {
@@ -91,7 +91,7 @@ class LinkedList {
                 currentNode = currentNode.next;
             }
         }
-        this.count--;
+        this.lengthOfList--;
         return popValue;
     }
 
@@ -107,12 +107,12 @@ class LinkedList {
             this.head = this.head.next;
         }
 
-        this.count--;
+        this.lengthOfList--;
         return shiftValue;
     }
 
     insert(position, value) {
-        if (position >= this.count) {
+        if (position >= this.lengthOfList) {
             this.push(value);
         } else if (position <= 0) {
             this.unshift(value);
@@ -130,9 +130,9 @@ class LinkedList {
 
             currentNode.next = node;
             node.next = nextNode;
-            this.count++;
+            this.lengthOfList++;
         }
-        return this.count;
+        return this.lengthOfList;
     }
 
     remove(position) {
@@ -140,7 +140,7 @@ class LinkedList {
 
         if (position <= 0) {
             return this.shift();
-        } else if (position >= this.count - 1) {
+        } else if (position >= this.lengthOfList - 1) {
             return this.pop();
         } else {
             let currentNode = this.head;
@@ -154,7 +154,7 @@ class LinkedList {
             let removedValue = currentNode.next.value;
 
             currentNode.next = currentNode.next.next;
-            this.count--;
+            this.lengthOfList--;
 
             return removedValue;
         }
@@ -174,21 +174,21 @@ class LinkedList {
                 if (previousNode === null) {            // head condition
                     this.shift();
                     currentNode = this.head;
-                    if (!multiRemove) return this.count;
+                    if (!multiRemove) return this.lengthOfList;
                     continue;
                 } else if (currentNode.next === null) { // tail condition
                     this.pop();
-                    return this.count;
+                    return this.lengthOfList;
                 } else {
                     previousNode.next = currentNode.next;
                     currentNode = currentNode.next;
-                    this.count--;
-                    if (!multiRemove) return this.count;
+                    this.lengthOfList--;
+                    if (!multiRemove) return this.lengthOfList;
                     continue;
                 }
             }
 
-            if (multiRemove && isFound) return this.count;
+            if (multiRemove && isFound) return this.lengthOfList;
 
             previousNode = currentNode;
             currentNode = currentNode.next;
@@ -196,7 +196,7 @@ class LinkedList {
     }
 
     reverse() {
-        if (this.count > 1) {
+        if (this.lengthOfList > 1) {
             let currentNode = this.head;
             let nextNode = currentNode.next;
             this.head.next = null;
@@ -253,9 +253,9 @@ class LinkedList {
 
     mergeList(anotherLinkedList) {
         this.tail.next = anotherLinkedList.head;
-        this.count += anotherLinkedList.count;
+        this.lengthOfList += anotherLinkedList.lengthOfList;
         this.tail = anotherLinkedList.tail;
-        return this.count;
+        return this.lengthOfList;
     }
 }
 
